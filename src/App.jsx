@@ -1,4 +1,5 @@
 import Form from "./components/Form";
+import Todos from "./components/Todos";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <div className="shadow shadow-gray-200 md:w-1/2 mx-auto p-5 flex flex-col gap-10">
         <h1 className="text-4xl font-semibold tracking-widest text-center uppercase">Todo Application</h1>
         <Form></Form>
+        <Todos></Todos>
       </div>
     </div>
   );

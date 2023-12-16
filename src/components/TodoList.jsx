@@ -1,0 +1,35 @@
+import { useContext } from "react";
+import { BiCheck, BiEdit, BiTrashAlt } from "react-icons/bi";
+import { TodoContext } from "../Context/TodoProvider";
+
+const TodoList = ({ id, text, isChecked }) => {
+  const { dispatch } = useContext(TodoContext);
+  const checkTodo = () => {
+    dispatch({ type: "CHECK_TODO", payload: id });
+  };
+
+  const deleteTodo = () => {
+    dispatch({ type: "DELETE_TODO", payload: id });
+  };
+
+  return (
+    <li className="flex items-center justify-between text-xl border-y px-7 py-5 rounded-xl ">
+      <div className="flex gap-6 items-center">
+        <button className="border rounded-full p-1 border-green-500 hover:bg-green-500 hover:text-white" onClick={checkTodo}>
+          <BiCheck />
+        </button>
+        <p className={`text ${isChecked && "liChecked"}`}>{text}</p>
+      </div>
+      <div>
+        <button className="mr-2 text-blue-700">
+          <BiEdit />
+        </button>
+        <button className="text-red-500" onClick={deleteTodo}>
+          <BiTrashAlt />
+        </button>
+      </div>
+    </li>
+  );
+};
+
+export default TodoList;
