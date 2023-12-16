@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Todos from "./components/Todos";
 
@@ -8,6 +9,7 @@ function App() {
         <h1 className="text-4xl font-semibold tracking-widest text-center uppercase">Todo Application</h1>
         <Form></Form>
         <Todos></Todos>
+        <Footer></Footer>
       </div>
     </div>
   );

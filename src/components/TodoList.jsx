@@ -15,10 +15,10 @@ const TodoList = ({ id, text, isChecked }) => {
   return (
     <li className="flex items-center justify-between text-xl border-y px-7 py-5 rounded-xl ">
       <div className="flex gap-6 items-center">
-        <button className="border rounded-full p-1 border-green-500 hover:bg-green-500 hover:text-white" onClick={checkTodo}>
+        <button className={`border-2 rounded-full p-1 border-green-500 hover:bg-green-500 hover:text-white ${isChecked && "bg-green-500 text-white"}`} onClick={checkTodo}>
           <BiCheck />
         </button>
-        <p className={`text ${isChecked && "liChecked"}`}>{text}</p>
+        <p className={`${isChecked && "line-through"}`}>{text}</p>
       </div>
       <div>
         <button className="mr-2 text-blue-700">
