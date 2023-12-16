@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { useContext, useState } from "react";
 import { BiPlusCircle } from "react-icons/bi";
 import { TodoContext } from "./../context/TodoProvider";
+import { toast } from 'react-hot-toast';
 
 const Form = () => {
   const { dispatch } = useContext(TodoContext);
@@ -13,6 +14,8 @@ const Form = () => {
 
     const newTodo = { id: nanoid(5), text, isChecked: false };
     dispatch({ type: "ADD_TODO", payload: newTodo });
+
+    toast.success("Todo added successfully")
 
     //clear input
     setText("");

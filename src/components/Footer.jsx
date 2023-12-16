@@ -1,11 +1,20 @@
 import { useContext } from "react";
 import { TodoContext } from './../context/TodoProvider';
+import { toast } from 'react-hot-toast';
 
 const Footer = () => {
   const { dispatch, todos } = useContext(TodoContext);
 
   const clearAll = () => {
     dispatch({ type: "DELETE_ALL" });
+    toast.success("All Todo deleted Successfully", {
+      style: {
+        color: "#ff0000",
+      },
+      iconTheme: {
+        primary: "#ff0000"
+      },
+    });
   };
 
   return (
