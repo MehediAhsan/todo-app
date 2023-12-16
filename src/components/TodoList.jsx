@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BiCheck, BiEdit, BiTrashAlt } from "react-icons/bi";
-import { TodoContext } from "../Context/TodoProvider";
+import { TodoContext } from './../context/TodoProvider';
 
 const TodoList = ({ id, text, isChecked }) => {
   const { dispatch } = useContext(TodoContext);
