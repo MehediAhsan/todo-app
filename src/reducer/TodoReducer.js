@@ -8,7 +8,7 @@ export const TodoReducer = (state, action) => {
     case "CHECK_TODO":
       return {
         ...state,
-        todos: state.todos.map((todo) => {
+        todos: state.todos?.map((todo) => {
           if (todo.id === action.payload) {
             return {
               ...todo,

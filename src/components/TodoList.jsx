@@ -27,6 +27,10 @@ const TodoList = ({ id, text, isChecked }) => {
     });
   };
 
+  const editTodo = () => {
+    dispatch({ type: "EDIT_TODO", payload: id });
+  }
+
   return (
     <li className="flex items-center justify-between text-xl bg-slate-400 px-5 py-3 rounded">
       <div className="flex gap-6 items-center">
@@ -41,7 +45,7 @@ const TodoList = ({ id, text, isChecked }) => {
         <p className={`${isChecked && "line-through"}`}>{text}</p>
       </div>
       <div>
-        <button className="mr-2 text-blue-700">
+        <button className="mr-2 text-blue-700" onClick={editTodo}>
           <BiEdit />
         </button>
         <button className="text-red-500" onClick={deleteTodo}>
