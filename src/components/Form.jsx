@@ -6,13 +6,14 @@ import { toast } from 'react-hot-toast';
 
 const Form = () => {
   const { dispatch } = useContext(TodoContext);
+  const date = new Date().toDateString();
 
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newTodo = { id: nanoid(5), text, isChecked: false };
+    const newTodo = { id: nanoid(5), text, date, isChecked: false };
     dispatch({ type: "ADD_TODO", payload: newTodo });
 
     toast.success("Todo added successfully")

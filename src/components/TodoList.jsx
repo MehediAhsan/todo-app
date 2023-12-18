@@ -3,15 +3,14 @@ import { BiCheck, BiEdit, BiTrashAlt } from "react-icons/bi";
 import { TodoContext } from "./../context/TodoProvider";
 import { toast } from "react-hot-toast";
 
-const TodoList = ({ id, text, isChecked }) => {
+const TodoList = ({ id, text, date, isChecked }) => {
   const { dispatch } = useContext(TodoContext);
   const checkTodo = () => {
     dispatch({ type: "CHECK_TODO", payload: id });
-    if(isChecked) {
-      toast.success("Uncompleted")
-    }
-    else{
-      toast.success("Completed")
+    if (isChecked) {
+      toast.success("Uncompleted");
+    } else {
+      toast.success("Completed");
     }
   };
 
@@ -22,14 +21,14 @@ const TodoList = ({ id, text, isChecked }) => {
         color: "#ff0000",
       },
       iconTheme: {
-        primary: "#ff0000"
+        primary: "#ff0000",
       },
     });
   };
 
   const editTodo = () => {
     dispatch({ type: "EDIT_TODO", payload: id });
-  }
+  };
 
   return (
     <li className="flex items-center justify-between text-xl bg-slate-400 px-5 py-3 rounded">
@@ -42,8 +41,15 @@ const TodoList = ({ id, text, isChecked }) => {
         >
           <BiCheck />
         </button>
-        <p className={`${isChecked && "line-through"}`}>{text}</p>
+        <p className={`flex items-center ${isChecked && "line-through"}`}>
+          <span>{text}</span>
+        </p>
       </div>
+      <span
+        className={`flex items-center ${isChecked && "line-through"} text-sm text-gray-800`}
+      >
+        {date}
+      </span>
       <div>
         <button className="mr-2 text-blue-700" onClick={editTodo}>
           <BiEdit />
