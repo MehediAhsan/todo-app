@@ -31,7 +31,7 @@ const TodoList = ({ id, text, date, isChecked }) => {
   };
 
   return (
-    <li className="flex items-center justify-between text-xl bg-slate-400 px-5 py-3 rounded">
+    <li className="flex items-center justify-between text-xl bg-slate-300 px-5 py-3 rounded">
       <div className="flex gap-6 items-center">
         <button
           className={`border-2 rounded-full p-1 border-green-500 hover:bg-green-500 hover:text-white ${
